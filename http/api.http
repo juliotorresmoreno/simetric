@@ -1,0 +1,4 @@
+
+
+
+GET http://localhost:8001/api/titanic/?limit=0,2&sex=male&Name=like:Braund&Ticket=like:A&Fare=gt:7&sort=name:desc,Sex:asc HTTP/1.1

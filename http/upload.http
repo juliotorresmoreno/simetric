@@ -1,0 +1,16 @@
+
+
+POST http://localhost:8001/etl/ HTTP/1.1
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="text"
+
+title
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="file"; filename="titanic.csv"
+Content-Type: text/csv
+
+< ./example/titanic.csv
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
+
