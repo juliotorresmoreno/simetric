@@ -126,3 +126,7 @@ El  servidor wsgi elegido ha sido gunicorn puesto permite que los trabajadores v
 
 **Limitaciones**: Se ha usado Redis para asignar las tareas, sin embargo, esto no permite conocer en tiempo real el estado de los trabajadores por lo cual puede darse el caso de que se le asigne una tarea a un proceso ocupado. Para mitigar esto cada asignación tiene un tamaño máximo de bytes permitiendo que cada trabajador pueda completar la tarea anterior en el menor tiempo posible. Si un  trabajador recibe una tarea estando ocupado por la naturaleza bloqueante de los procesos esta quedara en la cola de mensajes hasta que se libere y pueda ser procesado.
 
+## Otras soluciones
+- **Solución 1**: Usar AWS Data PipeLine.
+- **Solución 2**: Generar llaves de session temporales con STS del sdk de AWS para que el cliente suba los archivos. Procesar los datos posteriormente con Apache Spark.
+**Solución 3**: Reemplazar redis como broker de mensajes con un desarrollo propio para administrar mejor los estados de los trabajadores reduciendo los tiempos de asignacion de recursos y permitirle al  los trabajadores enviarse la informacion directamente reduciendo la latencia.
